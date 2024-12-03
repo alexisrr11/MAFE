@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mafe - Carrito de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
+    <style>
+        #cart-items {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 5px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h4 class="title-carri">Carrito</h4>
+        <a href="index.html" class="go-back"><i class='bx bx-left-arrow-alt'></i>Volver</a>
+    </header>
+    <main>
+        <section id="cart">
+            <div id="cart-items">
+                <p>El carrito está vacío</p>
+            </div>
+            <p id="total-amount">Total: $0.00</p>
+            <button id="buy-button" disabled>Comprar</button>
+            <button id="whatsapp-button" disabled>Enviar por WhatsApp</button>
+            <button id="test-button">Generar productos de prueba</button>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-content container">
+            <div class="link">
+                <h3>Contactenos por whatsapp</h3>
+                <ul>
+                    <li><a href="https://api.whatsapp.com/send?phone=541176302064"><i class='bx bxl-whatsapp'></i> Federico</a></li>
+                    <li><a href="https://api.whatsapp.com/send?phone=541176302063"><i class='bx bxl-whatsapp'></i> Marcela</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="cart.js"></script>
+</body>
+</html>
