@@ -61,11 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
         message += `\nTotal: $${total.toFixed(2)}\n\n¡Gracias!`;
         return message;
     }
+    
 
     // Evento para el botón de WhatsApp
     whatsappButton.addEventListener("click", () => {
         const message = generateWhatsAppMessage();
-        const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
+        const whatsappURL = `https://api.whatsapp.com/send?phone=541176302063&text=${encodeURIComponent(message)}`;
         window.open(whatsappURL, "_blank");
     });
 
