@@ -23,7 +23,7 @@ img {
     background-color: #f7efd8;
     display: flex;
     align-items: center;
-    min-height: 70vh;
+    min-height: 100vh;
     padding: 100px 0;
 }
 
@@ -46,10 +46,14 @@ img {
 
 }
 
-.header-content .header-img .todos {
+.todos {
+    border-radius: 50%;
+    height: 90%;
+}
+
+.header-content {
     padding: 10px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.384);
 }
 
 .menu .navbar ul li {
@@ -292,7 +296,6 @@ h3 {
 .product {
     width: 95%;
     position: relative;
-    left: 10px;
     align-content: center;
     text-align: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -412,7 +415,7 @@ input {
     color: #f3f3f3;
     font-size: 20px;
     display: block;
-    margin-bottom: 10px;
+    margin: 50px 0;
 }
 
 link a:hover {
@@ -429,6 +432,7 @@ link a:hover {
     height: 75%;
     border-radius: 20px;
     text-align: center;
+    align-content: center;
     align-items: center;
     padding: 50px;
     position: fixed;
@@ -643,7 +647,7 @@ button:hover:enabled {
     color: #ffff;
     font-size: 28px;
     position: fixed;
-    right: 10px;
+    right: 18px;
     bottom: 10px;
     padding: 6px;
     z-index: 1;
