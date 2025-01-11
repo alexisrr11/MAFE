@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let total = 0;
 
         Object.entries(cartItems).forEach(([id, item]) => {
-            message += `- ${item.name} (x${item.quantity}): $${(item.price * item.quantity).toFixed(2)}\n`;
+            message += `- ${item.name} (x${item.quantity}): $${(item.price * item.quantity).toFixed(2)}\n\n`;
             total += item.price * item.quantity;
         });
 
