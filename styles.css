@@ -501,7 +501,8 @@ link a:hover {
         visibility: hidden;
 
         position: fixed;
-        height: 95vh;
+        padding: 50px;
+        height: 100vh;
         width: 50%;
         background-color: #8DC84B;
         right: 0;
@@ -511,13 +512,24 @@ link a:hover {
         justify-content: space-around;
         flex-direction: column;
         z-index: 2;
+        box-shadow: -100px 50px 1000px rgba(0, 0, 0, 0.89);
+        transition: opacity 0.7s 0.3s, visibility 0.7s 0.3s;
     }
     .ul.visible {
         opacity: 1;
         visibility: visible;
     }
-    .ul li a:hover {
-        color: #f7efd8;
+    .ul li a {
+        padding: 10px;
+        border-bottom: 1px solid #fff;
+    }
+    .ul li {
+        color: #fff;
+        font: 1000;
+    }
+    .ul li a:hover, 
+    .ul li:hover {
+        color: black;
     }
     .abrir-menu {
         display: block;
@@ -526,15 +538,16 @@ link a:hover {
     .cerrar-menu {
         display: block;
         position: absolute;
-        top: 5%;
-        left: 5%;
+        top: 2%;
+        right: 5%;
         cursor: pointer;
-        border-radius: 50%;
-        padding: 4px;
+        border-radius: 10px;
+        padding: 5px 10px;
         border: #8DC84B;
         background-color: #8DC84B;
         color: #ffff;
         font-size: 20px;
+        background-color: #18171380;
     }
     .cerrar-menu:hover{
         background-color: #181713;
