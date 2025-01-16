@@ -502,17 +502,18 @@ link a:hover {
 
         position: fixed;
         padding: 50px;
-        height: 100vh;
-        width: 50%;
+        height: 95vh;
+        width: 45%;
         background-color: #8DC84B;
+        border-radius: 100px 0 0 100px;
         right: 0;
-        top: 0;
+        top: 10px;
         text-align: center;
         display: flex;
         justify-content: space-around;
         flex-direction: column;
         z-index: 2;
-        box-shadow: -100px 50px 1000px rgba(0, 0, 0, 0.89);
+        box-shadow: 0 50px 1000px rgba(0, 0, 0, 0.89);
         transition: opacity 0.7s 0.3s, visibility 0.7s 0.3s;
     }
     .ul.visible {
@@ -522,6 +523,9 @@ link a:hover {
     .ul li a {
         padding: 10px;
         border-bottom: 1px solid #fff;
+    }
+    ul li a br {
+        border-bottom: transparent;
     }
     .ul li {
         color: #fff;
@@ -538,7 +542,7 @@ link a:hover {
     .cerrar-menu {
         display: block;
         position: absolute;
-        top: 2%;
+        top: 1px;
         right: 5%;
         cursor: pointer;
         border-radius: 10px;
@@ -616,7 +620,7 @@ link a:hover {
         height: 90%;
     }
     .ul {
-        width: 70vw;
+        width: 60vw;
     }
 
 }
