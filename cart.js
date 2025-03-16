@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     whatsappButton.addEventListener("click", () => {
         const message = generateWhatsAppMessage();
-        const whatsappURL = `https://api.whatsapp.com/send?phone=541176302063&text=${encodeURIComponent(message)}`;
+        const whatsappURL = `https://api.whatsapp.com/send?phone=541137659081&text=${encodeURIComponent(message)}`;
         window.open(whatsappURL, "_blank");
     });
 
