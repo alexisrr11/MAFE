@@ -8,7 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
     <style>
         #cart-items {
-            max-height: 400px;
+            max-height: 500px;
             overflow-y: auto;
             padding: 10px;
             border: 1px solid #ccc;
@@ -23,9 +23,33 @@
             border: 1px solid #ddd;
             border-radius: 5px;
         }
-        @media (max-width: 450px){
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-controls button {
+            padding: 5px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .quantity-controls button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        @media (max-width: 500px){
             .cart-item {
                 flex-direction: column;
+                align-items: center;
+            }
+            .quantity-controls button {
+                font-size: 20px;
+                padding: 8px;
+            }
+            .quantity-controls {
+                margin-top: 0px;
+            }
+            .remove-item {
+                margin-top: 20px;
             }
         }
     </style>
@@ -45,6 +69,7 @@
             <button id="whatsapp-button" disabled>Enviar por WhatsApp</button>
             <button id="test-button">Generar productos de prueba</button>
         </section>
+        <button id="reset-cart" style="margin: 10px;">Vaciar Carrito</button>
     </main>
     <footer class="footer">
         <div class="footer-content container">
