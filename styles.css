@@ -36,7 +36,9 @@ img {
     align-items: center;
     justify-content: space-between;
 }
-
+.search-bar {
+    padding: 20px;
+}
 .logo {
     color: #8DC84B;
     font-size: 25px;
@@ -61,22 +63,28 @@ img {
     float: left;
 }
 
-.menu a img {
+.cart-container {
     position: fixed;
-    top: 45px;
-    left: 3.5%;
+    z-index: 1;
+    top: 8px;
+    left: 15px;
     border-radius: 50%;
-    padding: 7px;
-    background-color: rgba(255, 99, 71, 0.603);
+    padding: 24px;
+    background-color: rgba(255, 99, 71, 0.699);
 }
-
-#cuenta-carrito {
+.cart-container img {
     position: fixed;
-    top: 60px;
-    left: 6%;
-    background-color: tomato;
-    border-radius: 50%;
-    padding: 4px;
+    top: 15px;
+    left: 21px;
+    font-size: 20px;
+}
+#cart-count {
+    font-size: 13px;
+    font-weight: 600;
+    color: black;
+    position: fixed;
+    top: 30px;
+    left: 43px;
 }
 
 .ul {
@@ -393,7 +401,14 @@ input {
     color: #ffff;
     background-color: #8DC84B;
 }
-
+#no-results-message {
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    padding: 0 10px;
+    padding-bottom: 200px;
+}
 .footer {
     height: 40vh;
     padding: 50px;
@@ -483,19 +498,6 @@ link a:hover {
     .navbar ul li a {
         color: #ffff;
     }
-    .menu a img {
-        position: fixed;
-        top: 15px;
-        left: 7%;
-        border-radius: 50%;
-        padding: 7px;
-    }
-    #cuenta-carrito {
-        position: fixed;
-        top: 33px;
-        left: 12.3%;
-        padding: 2px;
-    }
     .ul{
         opacity: 0;
         visibility: hidden;
@@ -581,6 +583,12 @@ link a:hover {
     .header-img img{
         width: 300px;
     }
+    input {
+        padding: 10px;   
+    }
+    .search-bar {
+        padding: 0;
+    }
     .information {
         display: none;
     }
@@ -614,6 +622,10 @@ link a:hover {
 }
 
 @media (max-width: 450px) {
+    .search-bar {
+        padding: 0;
+        padding-left: 10px;
+    }
     .ventana {
         padding: 8px;
         top: 15px;
