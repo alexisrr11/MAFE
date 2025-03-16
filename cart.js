@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Cargar los productos del carrito desde el localStorage
     let cartItems = JSON.parse(localStorage.getItem("cart")) || {};
     const cartContainer = document.getElementById("cart-items");
     const totalAmount = document.getElementById("total-amount");
     const buyButton = document.getElementById("buy-button");
     const whatsappButton = document.getElementById("whatsapp-button");
     const testButton = document.getElementById("test-button");
+    const resetCartButton = document.getElementById("reset-cart");
 
-    // Función para renderizar el carrito
     function renderCart() {
         cartContainer.innerHTML = "";
 
@@ -25,7 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const cartItem = document.createElement("div");
             cartItem.classList.add("cart-item");
             cartItem.innerHTML = `
-                <p>${item.name} - $${item.price.toFixed(2)} x ${item.quantity}</p>
+                <p>${item.name} - $${item.price.toFixed(2)}</p>
+                <div class="quantity-controls">
+                    <button class="decrease" data-id="${id}" ${item.quantity === 1 ? "disabled" : ""}>-</button>
+                    <span>${item.quantity}</span>
+                    <button class="increase" data-id="${id}">+</button>
+                </div>
                 <button class="remove-item" data-id="${id}">Eliminar</button>
             `;
             cartContainer.appendChild(cartItem);
@@ -37,7 +41,26 @@ document.addEventListener("DOMContentLoaded", () => {
         buyButton.disabled = false;
         whatsappButton.disabled = false;
 
-        // Añadir funcionalidad para eliminar productos
+        document.querySelectorAll(".increase").forEach(button => {
+            button.addEventListener("click", (e) => {
+                const productId = e.target.getAttribute("data-id");
+                cartItems[productId].quantity++;
+                localStorage.setItem("cart", JSON.stringify(cartItems));
+                renderCart();
+            });
+        });
+
+        document.querySelectorAll(".decrease").forEach(button => {
+            button.addEventListener("click", (e) => {
+                const productId = e.target.getAttribute("data-id");
+                if (cartItems[productId].quantity > 1) {
+                    cartItems[productId].quantity--;
+                    localStorage.setItem("cart", JSON.stringify(cartItems));
+                    renderCart();
+                }
+            });
+        });
+
         document.querySelectorAll(".remove-item").forEach(button => {
             button.addEventListener("click", (e) => {
                 const productId = e.target.getAttribute("data-id");
@@ -48,13 +71,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Función para generar el mensaje de WhatsApp
     function generateWhatsAppMessage() {
         let message = "Hola, me interesa comprar los siguientes productos:\n\n";
         let total = 0;
 
         Object.entries(cartItems).forEach(([id, item]) => {
-            message += `- ${item.name} (x${item.quantity}): $${(item.price * item.quantity).toFixed(2)}\n\n`;
+            message += `- ${item.name} (x${item.quantity}): $${(item.price * item.quantity).toFixed(2)}\n`;
             total += item.price * item.quantity;
         });
 
@@ -62,35 +84,17 @@ document.addEventListener("DOMContentLoaded", () => {
         return message;
     }
     
-
-    // Evento para el botón de WhatsApp
     whatsappButton.addEventListener("click", () => {
         const message = generateWhatsAppMessage();
         const whatsappURL = `https://api.whatsapp.com/send?phone=541176302063&text=${encodeURIComponent(message)}`;
         window.open(whatsappURL, "_blank");
     });
 
-    // Evento para el botón de compra
-    buyButton.addEventListener("click", () => {
-        alert(`¡Gracias por tu compra! El total fue $${totalAmount.textContent.split("$")[1]}`);
+    resetCartButton.addEventListener("click", () => {
+        cartItems = {};
         localStorage.removeItem("cart");
-        cartItems = {}; // Vaciar el carrito
         renderCart();
     });
 
-    // Generar productos de prueba (100 productos)
-    testButton.addEventListener("click", () => {
-        for (let i = 1; i <= 100; i++) {
-            cartItems[i] = {
-                name: `Producto ${i}`,
-                price: Math.random() * 100,
-                quantity: Math.floor(Math.random() * 5) + 1,
-            };
-        }
-        localStorage.setItem("cart", JSON.stringify(cartItems));
-        renderCart();
-    });
-
-    // Llamada inicial para renderizar el carrito al cargar la página
     renderCart();
 });
